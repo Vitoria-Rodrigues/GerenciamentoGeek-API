@@ -8,11 +8,13 @@ import com.gerenciamentogeek.api.repository.ClienteRepository;
 import com.gerenciamentogeek.api.repository.FuncionarioRepository;
 import com.gerenciamentogeek.api.repository.ProdutoRepository;
 import com.gerenciamentogeek.api.repository.VendaRepository;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class VendaService {
     private final VendaRepository vendaRepository;
     private final ProdutoRepository produtoRepository;
@@ -68,7 +70,7 @@ public class VendaService {
     public List<VendaResponse> listarVendas(String cpfC) {
         List<VendaResponse> listaVenda = new ArrayList<>();
 
-        if (cpfC.isEmpty()) {
+        if (cpfC == null) {
             List<Venda> vendas = vendaRepository.findAll();
             if (vendas.isEmpty()) {
                 throw new RuntimeException("Venda não encontrada");
@@ -84,7 +86,7 @@ public class VendaService {
                 }
             }
         } else {
-            Venda venda = vendaRepository.listarVendaPorCPFCliente(cpfC).orElseThrow(() -> new RuntimeException("Nome de cliente não encontrado"));
+            Venda venda = vendaRepository.listarVendaPorCPFCliente(cpfC).orElseThrow(() -> new RuntimeException("Não foi encontrada uma venda com esse CPF"));
             VendaResponse vendaResponse = new VendaResponse(
                     venda.getId(),
                     venda.getDataVenda(),
