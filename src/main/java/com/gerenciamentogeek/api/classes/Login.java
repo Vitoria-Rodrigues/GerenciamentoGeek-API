@@ -24,11 +24,11 @@ public class Login {
     }
 
     public Login(String login, String senha) {
-        if(getLogin() == null || getLogin().isBlank()){
+        if(login == null || login.isBlank()){
             throw new IllegalArgumentException("O login é obrigatório.");
         }
 
-        if(getSenha() == null || getSenha().isBlank()){
+        if(senha == null || senha.isBlank()){
             throw new IllegalArgumentException("A senha é obrigatório.");
         }
 
