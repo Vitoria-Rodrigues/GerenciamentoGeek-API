@@ -2,6 +2,7 @@ package com.gerenciamentogeek.api.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Positive;
 import org.hibernate.validator.constraints.br.CPF;
 
 public class funcionarioDTO {
@@ -34,7 +35,7 @@ public class funcionarioDTO {
     @NotBlank(message = "Senha é obrigatório")
     private String senha;
 
-    @NotBlank(message = "Cargo é obrigatório")
+    @Positive(message = "Cargo é obrigatório")
     private Long cargo;
 
     public funcionarioDTO() {
