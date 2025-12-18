@@ -1,7 +1,12 @@
 package com.gerenciamentogeek.api.dto;
 
+import jakarta.validation.constraints.NotBlank;
+
 public class loginDTO {
+    @NotBlank(message = "Login é obrigatório")
     private String login;
+
+    @NotBlank(message = "Senha é obrigatório")
     private String senha;
 
     public loginDTO() {
