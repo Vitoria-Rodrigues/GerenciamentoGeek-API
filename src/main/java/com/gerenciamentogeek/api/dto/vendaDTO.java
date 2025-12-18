@@ -1,12 +1,20 @@
 package com.gerenciamentogeek.api.dto;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
+
 import java.time.LocalDate;
 import java.util.List;
 
 public class vendaDTO {
     private LocalDate data;
+
+    @NotBlank(message = "Total é obrigatório")
     private Double total;
+
+    @Positive(message = "Precisa ter pelo menos 1 item")
     private int qtd;
+
     private String cpfCliente;
     private Long idFuncionario;
     private int codProduto;
