@@ -1,9 +1,20 @@
 package com.gerenciamentogeek.api.dto;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import org.hibernate.validator.constraints.br.CPF;
+
 public class clienteDTO {
+    @NotBlank(message = "Nome é obrigatório")
     private String nome;
+
+    @NotBlank(message = "CPF é obrigatório")
+    @CPF(message = "CPF inválido")
     private String cpf;
+    @NotBlank(message = "Sexo é obrigatório")
     private String sexo;
+
+    @Pattern(regexp = "^\\(?\\d{2}\\)?[\\s-]?\\d{4,5}-?\\d{4}$")
     private String telefone;
 
     public clienteDTO() {
