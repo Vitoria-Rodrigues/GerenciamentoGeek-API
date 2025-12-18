@@ -19,7 +19,7 @@ public class produtoDTO {
     @Positive(message = "O código precisa ser maior que 0")
     private int codigo;
 
-    @NotBlank(message = "Categoria é obrigatório")
+    @Positive(message = "Categoria é obrigatório")
     private Long categoria;
 
     public produtoDTO() {
