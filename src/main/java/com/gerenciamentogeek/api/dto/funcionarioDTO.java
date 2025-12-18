@@ -1,15 +1,40 @@
 package com.gerenciamentogeek.api.dto;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import org.hibernate.validator.constraints.br.CPF;
+
 public class funcionarioDTO {
+    @NotBlank(message = "Funcionário é obrigatório")
     private String nome;
+
+    @NotBlank(message = "CPF é obrigatório")
+    @CPF(message = "CPF inválido")
     private String cpf;
+
+    @NotBlank(message = "Logradouro é obrigatório")
     private String logradouro;
+
+    @NotBlank(message = "CEP é obrigatório")
     private String cep;
+
+    @NotBlank(message = "Telefone é obrigatório")
+    @Pattern(regexp = "^\\(?\\d{2}\\)?[\\s-]?\\d{4,5}-?\\d{4}$")
     private String telefone;
+
+    @NotBlank(message = "Número é obrigatório")
     private String numero;
+
+    @NotBlank(message = "Complemento é obrigatório")
     private String complemento;
+
+    @NotBlank(message = "Login é obrigatório")
     private String login;
+
+    @NotBlank(message = "Senha é obrigatório")
     private String senha;
+
+    @NotBlank(message = "Cargo é obrigatório")
     private Long cargo;
 
     public funcionarioDTO() {
