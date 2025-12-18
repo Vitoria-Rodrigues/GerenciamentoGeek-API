@@ -1,6 +1,7 @@
 package com.gerenciamentogeek.api.dto;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class vendaDTO {
     private LocalDate data;
@@ -11,11 +12,13 @@ public class vendaDTO {
     private int codProduto;
     private String formaPagamento;
     private int parcelasPagamento;
+    private List<itemVendaDTO> itemVenda;
+
 
     public vendaDTO() {
     }
 
-    public vendaDTO(LocalDate data, Double total, int qtd, String cpfCliente, Long idFuncionario, int codProduto, String formaPagamento, int parcelasPagamento) {
+    public vendaDTO(LocalDate data, Double total, int qtd, String cpfCliente, Long idFuncionario, int codProduto, String formaPagamento, int parcelasPagamento, List<itemVendaDTO> itemVenda) {
         this.data = data;
         this.total = total;
         this.qtd = qtd;
@@ -24,6 +27,7 @@ public class vendaDTO {
         this.codProduto = codProduto;
         this.formaPagamento = formaPagamento;
         this.parcelasPagamento = parcelasPagamento;
+        this.itemVenda = itemVenda;
     }
 
     public LocalDate getData() {
@@ -88,5 +92,13 @@ public class vendaDTO {
 
     public void setParcelasPagamento(int parcelasPagamento) {
         this.parcelasPagamento = parcelasPagamento;
+    }
+
+    public List<itemVendaDTO> getItemVenda() {
+        return itemVenda;
+    }
+
+    public void setItemVenda(List<itemVendaDTO> itemVenda) {
+        this.itemVenda = itemVenda;
     }
 }
