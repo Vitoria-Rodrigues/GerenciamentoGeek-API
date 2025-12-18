@@ -42,7 +42,7 @@ public class VendaController{
         }
     }
 
-    @GetMapping({"/{cpfC", "/"})
+    @GetMapping({"/{cpfC}", "/"})
     public ResponseEntity<Response<List<VendaResponse>>> listarVendaPorCPFCliente(@PathVariable(required = false) String cpfC) {
         try {
             List<VendaResponse> vendaResponse = vendaService.listarVendas(cpfC);
