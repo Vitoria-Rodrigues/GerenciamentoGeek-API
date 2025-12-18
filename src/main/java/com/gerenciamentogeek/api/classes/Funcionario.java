@@ -42,23 +42,23 @@ public class Funcionario {
     }
 
     public Funcionario(String nomeF, String cpfF, String logradouro, String cep, String numero, String complemento, String telefoneF, Login login, Cargo cargo) {
-        if (getNomeF() == null || getNomeF().isBlank()) {
+        if (nomeF == null || nomeF.isBlank()) {
             throw new IllegalArgumentException("O nome do funcionário é obrigatório!");
         }
 
-        if (getCpfF() == null || getCpfF().isBlank()) {
+        if (cpfF == null || cpfF.isBlank()) {
             throw new IllegalArgumentException("O CPF do funcionário é obrigatório!");
         }
 
-        if (getCep() == null || getCep().isBlank()) {
+        if (cep == null || cep.isBlank()) {
             throw new IllegalArgumentException("O CEP do funcionário é obrigatório!");
         }
 
-        if (getLogradouro() == null || getLogradouro().isBlank()) {
+        if (logradouro == null || logradouro.isBlank()) {
             throw new IllegalArgumentException("O Logradouro do funcionário é obrigatório!");
         }
 
-        if (getNumero() == null || getNumero().isBlank()) {
+        if (numero == null || numero.isBlank()) {
             throw new IllegalArgumentException("O Numero da residencia do funcionário é obrigatório!");
         }
 
@@ -66,11 +66,11 @@ public class Funcionario {
             throw new IllegalArgumentException("O complemento do funcionário é obrigatório!");
         }
 
-        if (getTelefoneF()== null || getTelefoneF().isBlank()) {
+        if (telefoneF== null || telefoneF.isBlank()) {
             throw new IllegalArgumentException("O complemento do funcionário é obrigatório!");
         }
 
-        if (getCargo() == null || getCargo().getId() == null) {
+        if (cargo == null || cargo.getId() == null) {
             throw new IllegalArgumentException("O funcionário deve possuir um cargo válido!");
         }
 
