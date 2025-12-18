@@ -1,6 +1,9 @@
 package com.gerenciamentogeek.api.dto.response;
 
+import com.gerenciamentogeek.api.classes.Produto;
+
 import java.time.LocalDate;
+import java.util.List;
 
 public class VendaResponse {
     private Long id;
@@ -9,21 +12,21 @@ public class VendaResponse {
     private int qtd;
     private String cpfCliente;
     private Long idFuncionario;
-    private int codProduto;
+    private List<Produto> produtos;
     private String formaPagamento;
     private int parcelasPagamento;
 
     public VendaResponse() {
     }
 
-    public VendaResponse(Long id, LocalDate data, Double total, int qtd, String cpfCliente, Long idFuncionario, int codProduto, String formaPagamento, int parcelasPagamento) {
+    public VendaResponse(Long id, LocalDate data, Double total, int qtd, String cpfCliente, Long idFuncionario, List<Produto> produtos, String formaPagamento, int parcelasPagamento) {
         this.id = id;
         this.data = data;
         this.total = total;
         this.qtd = qtd;
         this.cpfCliente = cpfCliente;
         this.idFuncionario = idFuncionario;
-        this.codProduto = codProduto;
+        this.produtos = produtos;
         this.formaPagamento = formaPagamento;
         this.parcelasPagamento = parcelasPagamento;
     }
@@ -76,12 +79,12 @@ public class VendaResponse {
         this.idFuncionario = idFuncionario;
     }
 
-    public int getCodProduto() {
-        return codProduto;
+    public List<Produto> getProdutos() {
+        return produtos;
     }
 
-    public void setCodProduto(int codProduto) {
-        this.codProduto = codProduto;
+    public void setProdutos(List<Produto> produtos) {
+        this.produtos = produtos;
     }
 
     public String getFormaPagamento() {
