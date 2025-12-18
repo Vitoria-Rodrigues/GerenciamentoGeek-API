@@ -32,27 +32,27 @@ public class Produto {
     }
 
     public Produto(String nomeProd, String descProd, Double preco, int qtdEstoque, int codigoProd, Categoria categoria) {
-        if (getNomeProd() == null || getNomeProd().isBlank()) {
+        if (nomeProd == null || nomeProd.isBlank()) {
             throw new IllegalArgumentException("O nome do produto é obrigatório.");
         }
 
-        if (getPreco() == null || getPreco() <= 0) {
+        if (preco == null || preco <= 0) {
             throw new IllegalArgumentException("O preço do produto deve ser maior que zero.");
         }
 
-        if (getCodigoProd() <= 0) {
+        if (codigoProd <= 0) {
             throw new IllegalArgumentException("O código do produto é obrigatório.");
         }
 
-        if (getQtdEstoque() <= 0) {
+        if (qtdEstoque <= 0) {
             throw new IllegalArgumentException("A quantidade do produto deve ser zero ou maior.");
         }
 
-        if (getDescProd() == null || getDescProd().isBlank()) {
+        if (descProd == null || descProd.isBlank()) {
             throw new IllegalArgumentException("A descrição do produto é obrigatória.");
         }
 
-        if (getCategoria() == null || getCategoria().getId() == null) {
+        if (categoria == null || categoria.getId() == null) {
             throw new IllegalArgumentException("A categoria do produto é obrigatória.");
         }
 
