@@ -1,11 +1,25 @@
 package com.gerenciamentogeek.api.dto;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Positive;
+
 public class produtoDTO {
+    @NotBlank(message = "Nome é obrigatório")
     private String nome;
+
+    @NotBlank(message = "Descrição é obrigatório")
     private String desc;
+
+    @Positive(message = "O preço deve ser maior que 0")
     private Double preco;
+
+    @Positive(message = "O produto precisa ter estoque para ser cadastrado")
     private int qtdEstoque;
+
+    @Positive(message = "O código precisa ser maior que 0")
     private int codigo;
+
+    @NotBlank(message = "Categoria é obrigatório")
     private Long categoria;
 
     public produtoDTO() {
