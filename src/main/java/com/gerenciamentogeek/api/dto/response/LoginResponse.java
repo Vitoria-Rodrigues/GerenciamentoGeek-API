@@ -1,15 +1,25 @@
 package com.gerenciamentogeek.api.dto.response;
 
 public class LoginResponse {
+    private Long idFuncionario;
     private String login;
     private String cargo;
 
     public LoginResponse() {
     }
 
-    public LoginResponse(String login, String cargo) {
+    public LoginResponse(Long idFuncionario, String login, String cargo) {
+        this.idFuncionario = idFuncionario;
         this.login = login;
         this.cargo = cargo;
+    }
+
+    public Long getIdFuncionario() {
+        return idFuncionario;
+    }
+
+    public void setIdFuncionario(Long idFuncionario) {
+        this.idFuncionario = idFuncionario;
     }
 
     public String getLogin() {
