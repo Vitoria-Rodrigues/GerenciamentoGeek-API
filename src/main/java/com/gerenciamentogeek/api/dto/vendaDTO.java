@@ -9,7 +9,7 @@ import java.util.List;
 public class vendaDTO {
     private LocalDate data;
 
-    @NotBlank(message = "Total é obrigatório")
+    @Positive(message = "Total é obrigatório")
     private Double total;
 
     @Positive(message = "Precisa ter pelo menos 1 item")
