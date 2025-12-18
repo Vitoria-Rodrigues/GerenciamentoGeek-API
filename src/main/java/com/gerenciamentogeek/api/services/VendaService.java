@@ -61,19 +61,14 @@ public class VendaService {
                 vendaSalva.getId(),
                 vendaSalva.getDataVenda(),
                 vendaSalva.getTotalVenda(),
-                vendaSalva.getQtdVenda(),
-                vendaSalva.getCliente().getCpfC(),
-                vendaSalva.getFuncionario().getId(),
-                vendaSalva.getProd(),
-                vendaSalva.getFormapagamento().getMetodoPag(),
-                vendaSalva.getFormapagamento().getParcelasPag()
+                vendaSalva.getCliente().getCpfC()
         );
     }
 
-    public List<VendaResponse> listarVendas(String nomeCliente) {
+    public List<VendaResponse> listarVendas(String cpfC) {
         List<VendaResponse> listaVenda = new ArrayList<>();
 
-        if (nomeCliente.isEmpty()) {
+        if (cpfC.isEmpty()) {
             List<Venda> vendas = vendaRepository.findAll();
             if (vendas.isEmpty()) {
                 throw new RuntimeException("Venda não encontrada");
@@ -83,60 +78,24 @@ public class VendaService {
                             venda.getId(),
                             venda.getDataVenda(),
                             venda.getTotalVenda(),
-                            venda.getQtdVenda(),
-                            venda.getCliente().getCpfC(),
-                            venda.getFuncionario().getId(),
-                            venda.getProd(),
-                            venda.getFormapagamento().getMetodoPag(),
-                            venda.getFormapagamento().getParcelasPag()
+                            venda.getCliente().getCpfC()
                     );
                     listaVenda.add(vendaResponse);
                 }
             }
         } else {
-            Venda venda = vendaRepository.listarVendaPorNomeCliente(nomeCliente).orElseThrow(() -> new RuntimeException("Nome de cliente não encontrado"));
+            Venda venda = vendaRepository.listarVendaPorCPFCliente(cpfC).orElseThrow(() -> new RuntimeException("Nome de cliente não encontrado"));
             VendaResponse vendaResponse = new VendaResponse(
                     venda.getId(),
                     venda.getDataVenda(),
                     venda.getTotalVenda(),
-                    venda.getQtdVenda(),
-                    venda.getCliente().getCpfC(),
-                    venda.getFuncionario().getId(),
-                    venda.getProd(),
-                    venda.getFormapagamento().getMetodoPag(),
-                    venda.getFormapagamento().getParcelasPag()
+                    venda.getCliente().getCpfC()
             );
             listaVenda.add(vendaResponse);
         }
 
         return listaVenda;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
