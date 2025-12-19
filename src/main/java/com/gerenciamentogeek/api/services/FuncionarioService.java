@@ -29,7 +29,8 @@ public class FuncionarioService {
 
 
     public FuncionarioResponse salvarFuncionario(funcionarioDTO funcionarioDTO) {
-        Login login = new Login(funcionarioDTO.getLogin(), passwordEncoder.encode(funcionarioDTO.getSenha()));
+        String senhaCriptografada = passwordEncoder.encode(funcionarioDTO.getSenha());
+        Login login = new Login(funcionarioDTO.getLogin(), senhaCriptografada);
         Optional<Cargo> cargo = cargoRepository.findById(funcionarioDTO.getCargo());
 
         if (cargo.isEmpty()) {
