@@ -42,7 +42,7 @@ public class ProdutoController {
         }
     }
 
-    @GetMapping("/{cod}")
+    @GetMapping("/cod/{cod}")
     public ResponseEntity<Response<List<ProdutoResponse>>> buscarProdutos(@PathVariable int cod) {
         try {
             List<ProdutoResponse> produtosResponse = produtoService.listarProdutos(cod);
