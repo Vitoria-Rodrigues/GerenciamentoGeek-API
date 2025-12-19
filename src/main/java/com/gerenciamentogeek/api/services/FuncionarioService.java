@@ -41,6 +41,8 @@ public class FuncionarioService {
                     funcionarioDTO.getCep(), funcionarioDTO.getNumero(), funcionarioDTO.getComplemento(), funcionarioDTO.getTelefone(),
                     login, cargoAchado);
 
+            login.setFuncionario(funcionario);
+
             Funcionario funcionarioSalvo = funcionarioRepository.save(funcionario);
 
             return new FuncionarioResponse(
@@ -87,16 +89,16 @@ public class FuncionarioService {
 
             Funcionario fucionarioEditado = funcionarioRepository.save(funcionario);
             return new FuncionarioResponse(
-                    funcionario.getId(),
-                    funcionario.getNomeF(),
-                    funcionario.getCpfF(),
-                    funcionario.getLogradouro(),
-                    funcionario.getCep(),
-                    funcionario.getNumero(),
-                    funcionario.getComplemento(),
-                    funcionario.getTelefoneF(),
-                    funcionario.getLogin().getLogin(),
-                    funcionario.getCargo().getFuncao()
+                    fucionarioEditado.getId(),
+                    fucionarioEditado.getNomeF(),
+                    fucionarioEditado.getCpfF(),
+                    fucionarioEditado.getLogradouro(),
+                    fucionarioEditado.getCep(),
+                    fucionarioEditado.getNumero(),
+                    fucionarioEditado.getComplemento(),
+                    fucionarioEditado.getTelefoneF(),
+                    fucionarioEditado.getLogin().getLogin(),
+                    fucionarioEditado.getCargo().getFuncao()
             );
         }
     }
